@@ -1,5 +1,6 @@
 var bestDeal = require('../bestDeal');
 var perAvo = require('../perAvo');
+var cheapest = require('../cheapest');
 var assert = require('assert');
 
 describe('string to array',function(){
@@ -17,5 +18,15 @@ describe('price per avo',function(){
 var strings = [["1 ","3"],[" 2 ","7"],[" 3 ","10"],[" 5 ","14.50"]];
     var str = perAvo(strings)
     assert.deepEqual(str,[3, 3.5, 3.33, 2.9]);
+  });
+});
+
+describe('cheapest deal',function(){
+  it('find the cheapest deal',function(){
+
+var deal = [3, 3.5, 3.33, 2.9];
+var str = cheapest(deal);
+assert.equal(str,2.9);
+
   });
 });
