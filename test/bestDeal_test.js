@@ -1,6 +1,8 @@
 var bestDeal = require('../bestDeal');
 var perAvo = require('../perAvo');
 var cheapest = require('../cheapest');
+var expensive = require('../expensive');
+var average = require('../average');
 var assert = require('assert');
 
 describe('string to array',function(){
@@ -21,12 +23,31 @@ var strings = [["1 ","3"],[" 2 ","7"],[" 3 ","10"],[" 5 ","14.50"]];
   });
 });
 
+var deal = [3, 3.5, 3.33, 2.9];
+
 describe('cheapest deal',function(){
   it('find the cheapest deal',function(){
 
-var deal = [3, 3.5, 3.33, 2.9];
 var str = cheapest(deal);
 assert.equal(str,2.9);
 
   });
+});
+
+describe('expensive deal',function(){
+  it('find the expensive deal',function(){
+
+var str = expensive(deal);
+assert.equal(str,3.5);
+
+  });
+});
+
+describe('The average price',function(){
+  it('find the average price across all the deals',function(){
+
+    var str = average(deal);
+    assert.equal(str,3.1825);
+  });
+
 });
